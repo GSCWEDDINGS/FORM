@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GSC Weddings - Form di Prenotazione</title>
+<title>GSC Weddings - Form di Prenotazione rev1</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
@@ -63,19 +63,8 @@
 
 <script>
   // JavaScript to handle form submission
-  document.getElementById('weddingForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {};
-    for (const [key, value] of formData.entries()) {
-      data[key] = value;
-    }
-    console.log('Form data to be sent:', data);
-    // Here you would typically send the data to a server or handle it as needed
-  });
-</script>
-  
-  <script>
+
+
   document.getElementById('weddingForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
