@@ -9,6 +9,7 @@
 <style>
   /* Additional styles if needed */
 </style>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
 <div class="container mx-auto px-4 py-8">
@@ -71,6 +72,41 @@
     }
     console.log('Form data to be sent:', data);
     // Here you would typically send the data to a server or handle it as needed
+  });
+</script>
+  
+  <script>
+  document.getElementById('weddingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const data = {};
+    
+    for (const [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+
+    const message = `
+      Sposa: ${data.brideName}
+      Sposo: ${data.groomName}
+      Evento: ${data.eventDate}
+      Nome Location: ${data.locationName}
+      Città Location: ${data.cityLocation}
+      Contatto di riferimento: ${data.contactName}, ${data.contactCell}, ${data.contactEmail}
+      Riferimento per ricevuta: ${data.receiptName}, ${data.receiptSurname}, ${data.receiptAddress}, ${data.receiptProvince}, ${data.receiptNumber}, ${data.fiscalCode}
+    `;
+
+    Email.send({
+      SecureToken: "your_secure_token",
+      To: 'destination@example.com',
+      From: 'sender@example.com',
+      Subject: 'Nuova prenotazione matrimonio',
+      Body: message
+    }).then(
+      message => console.log('Email inviata con successo:', message)
+    );
+
+    // Aggiungi qui eventuali azioni dopo l'invio del modulo
   });
 </script>
 </body>
