@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSC Weddings - Form di Prenotazione</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Additional styles if needed */
+</style>
+</head>
+<body class="bg-gray-50 font-sans">
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-4">GSC Weddings</h1>
+  <p class="text-xl mb-8">Benvenuto!</p>
+  <form id="weddingForm" class="grid grid-cols-4 gap-4">
+    <div class="col-span-2">
+      <label for="brideName" class="block mb-2">Sposa</label>
+      <input type="text" id="brideName" name="brideName" placeholder="nome" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <div class="col-span-2">
+      <label for="groomName" class="block mb-2">Sposo</label>
+      <input type="text" id="groomName" name="groomName" placeholder="nome" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <div class="col-span-1">
+      <label for="eventDate" class="block mb-2">Evento</label>
+      <input type="date" id="eventDate" name="eventDate" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <div class="col-span-1">
+      <label for="locationName" class="block mb-2">Nome Location</label>
+      <input type="text" id="locationName" name="locationName" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <div class="col-span-2">
+      <label for="cityLocation" class="block mb-2">Città Location</label>
+      <input type="text" id="cityLocation" name="cityLocation" placeholder="questa casella fa si che l'utente possa scegliere una città italiana" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <div class="col-span-4">
+      <h2 class="text-2xl font-semibold mb-4">Contatto di riferimento</h2>
+      <div class="grid grid-cols-3 gap-4">
+        <input type="text" name="contactName" placeholder="nome" class="p-2 border border-gray-300 rounded">
+        <input type="tel" name="contactCell" placeholder="cell" class="p-2 border border-gray-300 rounded">
+        <input type="email" name="contactEmail" placeholder="mail" class="p-2 border border-gray-300 rounded">
+      </div>
+    </div>
+    <div class="col-span-4 mt-4">
+      <h2 class="text-2xl font-semibold mb-4">Riferimento per ricevuta</h2>
+      <div class="grid grid-cols-4 gap-4">
+        <input type="text" name="receiptName" placeholder="nome" class="p-2 border border-gray-300 rounded">
+        <input type="text" name="receiptSurname" placeholder="cognome" class="p-2 border border-gray-300 rounded">
+        <input type="text" name="receiptAddress" placeholder="Residente in via" class="p-2 border border-gray-300 rounded">
+        <input type="text" name="receiptProvince" placeholder="provincia" class="p-2 border border-gray-300 rounded">
+        <input type="text" name="receiptNumber" placeholder="numero" class="p-2 border border-gray-300 rounded">
+        <input type="text" name="fiscalCode" placeholder="codice fiscale" class="p-2 border border-gray-300 rounded">
+      </div>
+    </div>
+    <div class="col-span-4 mt-4">
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Invia</button>
+    </div>
+  </form>
+</div>
 
+<script>
+  // JavaScript to handle form submission
+  document.getElementById('weddingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = {};
+    for (const [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+    console.log('Form data to be sent:', data);
+    // Here you would typically send the data to a server or handle it as needed
+  });
+</script>
+</body>
+</html>
